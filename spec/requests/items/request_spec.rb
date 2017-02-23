@@ -1,6 +1,4 @@
 =begin
-When I send a GET request to /api/v1/items/1 I receive a 200 JSON response containing the id, name, description, and image_url but not the created_at or updated_at
-
 When I send a DELETE request to /api/v1/items/1 I receive a 204 JSON response if the record is successfully deleted
 
 When I send a POST request to /api/v1/items with a name, description, and image_url I receive a 201 JSON response if the record is successfully created And I receive a JSON response containing the id, name, description, and image_url but not the created_at or updated_at
@@ -46,5 +44,15 @@ RSpec.describe "Items API", type: :request do
     expect(item).to have_key(:image_url)
     expect(item).to_not have_key(:created_at)
     expect(item).to_not have_key(:updated_at)
+  end
+
+  it "deletes an item by id number" do
+    item1, item2 = create_list(:item, 2)
+
+    delete api_v1_item_path(item1)
+
+    expect(response.status).to eq 204
+
+    expect { Item.find(item1.id) }.to raise_error(Undefined)
   end
 end
