@@ -14,5 +14,13 @@
       </p>
     </div>
   <% end %>
+  <div class="search">
+    <h3>Search for Stores</h3>
+    <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:q, "Zipcode:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("search") %>
+    <% end %>
+  </div>
 </div>
 
