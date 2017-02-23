@@ -1,19 +1,21 @@
-<h5>
-  <%= "Stores within 25 miles of #{@presenter.zipcode}" %>
-</h5>
+<article class="search-results">
+  <h5>
+    <%= @presenter.zipcode %>
+  </h5>
 
-<p>
-  <%= "#{@presenter.total_stores} Total Stores" %>
-</p>
+  <p>
+    <%= @presenter.total_stores %>
+  </p>
 
-<ul>
-  <% @presenter.stores.each do |store| %>
-    <div class="store">
-      <li><%= "Store: #{store.name}"  %></li>
-      <li><%= "City: #{store.city}"  %></li>
-      <li><%= "Store Type: #{store.type}"  %></li>
-      <li><%= "Distance: #{store.distance} miles" %></li>
-      <li><%= "Phone: #{store.phone}" %></li>
-    </div>
-  <% end %>
-</ul>
+  <ul>
+    <% @presenter.stores.each do |store| %>
+      <div class="store">
+        <li><%= store_name(store)  %></li>
+        <li><%= store_city(store)  %></li>
+        <li><%= store_type(store)  %></li>
+        <li><%= store_distance(store) %></li>
+        <li><%= store_phone(store) %></li>
+      </div>
+    <% end %>
+  </ul>
+</article>
