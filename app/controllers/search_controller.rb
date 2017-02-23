@@ -13,8 +13,8 @@ class SearchPresenter
     @stores  = Store.near(zipcode)
   end
 
-  def stores_count
-    @stores.count
+  def total_stores
+    @stores.first.total_stores_nearby
   end
 
   def self.present(zipcode)
@@ -27,14 +27,16 @@ class Store
               :city,
               :phone,
               :distance,
-              :type
+              :type,
+              :total_stores_nearby
 
   def initialize(store_attrs)
-    @name     = store_attrs[:longName]
-    @type     = store_attrs[:storeType]
-    @city     = store_attrs[:city]
-    @phone    = store_attrs[:phone]
-    @distance = store_attrs[:distance]
+    @name                = store_attrs[:longName]
+    @type                = store_attrs[:storeType]
+    @city                = store_attrs[:city]
+    @phone               = store_attrs[:phone]
+    @distance            = store_attrs[:distance]
+    @total_stores_nearby = store_attrs[:total]
   end
 
   def self.near(zipcode)
@@ -47,7 +49,8 @@ end
 class BestBuyStoreService
   def get_stores(zipcode)
     @zipcode = zipcode
-    get_json[:stores]
+    # binding.pry
+    get_json[:stores].map { |store| store.merge({ total: get_json[:total] }) }
   end
 
   def self.near(zipcode)
@@ -65,7 +68,7 @@ class BestBuyStoreService
     end
 
     def response
-      conn.get(default_search)
+      @response ||= conn.get(default_search)
     end
 
     def get_json
