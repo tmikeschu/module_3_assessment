@@ -1,6 +1,4 @@
 =begin
-When I send a GET request to /api/v1/items I receive a 200 JSON response containing all items And each item has an id, name, description, and image_url but not the created_at or updated_at
-
 When I send a GET request to /api/v1/items/1 I receive a 200 JSON response containing the id, name, description, and image_url but not the created_at or updated_at
 
 When I send a DELETE request to /api/v1/items/1 I receive a 204 JSON response if the record is successfully deleted
@@ -24,6 +22,24 @@ RSpec.describe "Items API", type: :request do
     item  = items.first
 
     expect(items.count).to eq 5
+    expect(item).to have_key(:id)
+    expect(item).to have_key(:name)
+    expect(item).to have_key(:description)
+    expect(item).to have_key(:image_url)
+    expect(item).to_not have_key(:created_at)
+    expect(item).to_not have_key(:updated_at)
+  end
+
+  it "returns a single item by id" do
+    item1, item2 = create_list(:item, 2)
+
+    get api_v1_item_path(item1)
+
+    expect(response.status).to eq 200
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(item[:id]).to eq item1.id
     expect(item).to have_key(:id)
     expect(item).to have_key(:name)
     expect(item).to have_key(:description)
