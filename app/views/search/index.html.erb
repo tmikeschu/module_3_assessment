@@ -1,0 +1,21 @@
+<article class="search-results">
+  <h5>
+    <%= @presenter.zipcode %>
+  </h5>
+
+  <p>
+    <%= @presenter.total_stores %>
+  </p>
+
+  <ul>
+    <% @presenter.stores.each do |store| %>
+      <div class="store">
+        <li><%= store_name(store)  %></li>
+        <li><%= store_city(store)  %></li>
+        <li><%= store_type(store)  %></li>
+        <li><%= store_distance(store) %></li>
+        <li><%= store_phone(store) %></li>
+      </div>
+    <% end %>
+  </ul>
+</article>
