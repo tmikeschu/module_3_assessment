@@ -52,7 +52,6 @@ RSpec.describe "Items API", type: :request do
     delete api_v1_item_path(item1)
 
     expect(response.status).to eq 204
-
-    expect { Item.find(item1.id) }.to raise_error(Undefined)
+    expect { Item.find(item1.id) }.to raise_error(ActiveRecord::RecordNotFound)
   end
 end

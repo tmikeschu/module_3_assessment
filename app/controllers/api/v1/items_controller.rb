@@ -10,7 +10,9 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     if @item.destroy!
-      render json: status: 204
+      render json: "Successfully deleted", status: 204
+    else
+      render json: @item.errors.full_messages.join(", ")
     end
   end
 
