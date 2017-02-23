@@ -1,6 +1,7 @@
 class Api::V1::ItemsController < ApplicationController
   before_action :set_item, except: [:index, :create]
-  skip_before_filter :verify_authenticity_token, :only => :create
+
+  skip_before_filter :verify_authenticity_token, only: [:create, :destroy]
   respond_to :json
 
   def index
