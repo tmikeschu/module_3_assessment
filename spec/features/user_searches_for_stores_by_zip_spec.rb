@@ -27,7 +27,7 @@ RSpec.describe do
           expect(page).to have_content "16 Total Stores"
           expect(page).to have_selector(".store", count: 10)
 
-          expect(page).to have_content "City: Denver"
+          expect(page).to have_content "City: DENVER"
           expect(page).to have_content "Store: BEST BUY MOBILE - CHERRY CREEK SHOPPING CENTER"
           expect(page).to have_content "Distance: 3.45 miles"
           expect(page).to have_content "Phone: 303-270-9189"

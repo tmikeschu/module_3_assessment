@@ -9,11 +9,11 @@
 <ul>
   <% @presenter.stores.each do |store| %>
     <div class="store">
-      <li><%= #{store.name}  %></li>
-      <li><%= store.city  %></li>
-      <li><%= store.type  %></li>
-      <li><%= store.distance %></li>
-      <li><%= store.phone %></li>
+      <li><%= "Store: #{store.name}"  %></li>
+      <li><%= "City: #{store.city}"  %></li>
+      <li><%= "Store Type: #{store.type}"  %></li>
+      <li><%= "Distance: #{store.distance} miles" %></li>
+      <li><%= "Phone: #{store.phone}" %></li>
     </div>
   <% end %>
 </ul>
