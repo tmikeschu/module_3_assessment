@@ -1,5 +1,4 @@
 =begin
-When I send a DELETE request to /api/v1/items/1 I receive a 204 JSON response if the record is successfully deleted
 
 When I send a POST request to /api/v1/items with a name, description, and image_url I receive a 201 JSON response if the record is successfully created And I receive a JSON response containing the id, name, description, and image_url but not the created_at or updated_at
 
@@ -53,5 +52,27 @@ RSpec.describe "Items API", type: :request do
 
     expect(response.status).to eq 204
     expect { Item.find(item1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  it "creates a new item" do
+    item_params = {
+      name: "Item",
+      description: "A great item",
+      image_url: "google.com"
+    }
+
+    post api_v1_items_path, item: item_params
+
+    expect(response.status).to eq 201
+
+    item = JSON.parse(response.body, symbolize_names: true)
+
+    expect(item[:id]).to eq Item.last.id
+    expect(item).to have_key(:id)
+    expect(item).to have_key(:name)
+    expect(item).to have_key(:description)
+    expect(item).to have_key(:image_url)
+    expect(item).to_not have_key(:created_at)
+    expect(item).to_not have_key(:updated_at)
   end
 end
