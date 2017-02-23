@@ -21,7 +21,7 @@ RSpec.describe "Items API", type: :request do
     expect(response.status).to eq 200
 
     items = JSON.parse(response.body, symbolize_names: true)
-    item  = item.first
+    item  = items.first
 
     expect(items.count).to eq 5
     expect(item).to have_key(:id)
