@@ -1,0 +1,257 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bestbuy.com/v1/stores(area(80202,25))?apiKey=hhp47b5bvjda7pj44gsauf78&format=json&pageSize=10&show=city,longName,distance,phone,storeType
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '3628800'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 23 Feb 2017 17:46:28 GMT
+      Server:
+      - Best Buy Public APIs
+      X-Cache-Hit:
+      - 'false'
+      Content-Length:
+      - '2080'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "from": 1,
+          "to": 10,
+          "currentPage": 1,
+          "total": 16,
+          "totalPages": 2,
+          "queryTime": "0.009",
+          "totalTime": "0.027",
+          "partial": false,
+          "canonicalUrl": "/v1/stores(area(\"80202\",25))?show=city,longName,distance,phone,storeType&pageSize=10&format=json&apiKey=hhp47b5bvjda7pj44gsauf78",
+          "stores": [
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY MOBILE - CHERRY CREEK SHOPPING CENTER",
+              "distance": 3.45,
+              "phone": "303-270-9189",
+              "storeType": "Mobile SAS"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - BELMAR",
+              "distance": 5.31,
+              "phone": "303-742-8039",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY - COLORADO BLVD",
+              "distance": 5.59,
+              "phone": "303-758-5805",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - DENVER WEST",
+              "distance": 8.39,
+              "phone": "303-273-5617",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "WESTMINSTER",
+              "longName": "BEST BUY - WESTMINSTER",
+              "distance": 8.52,
+              "phone": "303-426-4434",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY - NORTHGLENN",
+              "distance": 9.14,
+              "phone": "303-252-8677",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "AURORA",
+              "longName": "BEST BUY MOBILE - TOWN CENTER AT AURORA",
+              "distance": 9.73,
+              "phone": "303-326-0848",
+              "storeType": "Mobile SAS"
+            },
+            {
+              "city": "AURORA",
+              "longName": "BEST BUY - AURORA",
+              "distance": 9.79,
+              "phone": "303-338-5797",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - LITTLETON",
+              "distance": 10.44,
+              "phone": "303-932-7830",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "CENTENNIAL",
+              "longName": "BEST BUY - SOUTHGLENN",
+              "distance": 11.02,
+              "phone": "303-797-3246",
+              "storeType": "Big Box"
+            }
+          ],
+          "warnings": "Distances are in terms of miles (default)"
+        }
+    http_version: 
+  recorded_at: Thu, 23 Feb 2017 17:46:19 GMT
+- request:
+    method: get
+    uri: https://api.bestbuy.com/v1/stores(area(80202,25))?apiKey=hhp47b5bvjda7pj44gsauf78&format=json&pageSize=10&show=city,longName,distance,phone,storeType
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.11.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '3628800'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 23 Feb 2017 17:46:47 GMT
+      Server:
+      - Best Buy Public APIs
+      X-Cache-Hit:
+      - 'true'
+      Content-Length:
+      - '2080'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "from": 1,
+          "to": 10,
+          "currentPage": 1,
+          "total": 16,
+          "totalPages": 2,
+          "queryTime": "0.009",
+          "totalTime": "0.027",
+          "partial": false,
+          "canonicalUrl": "/v1/stores(area(\"80202\",25))?show=city,longName,distance,phone,storeType&pageSize=10&format=json&apiKey=hhp47b5bvjda7pj44gsauf78",
+          "stores": [
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY MOBILE - CHERRY CREEK SHOPPING CENTER",
+              "distance": 3.45,
+              "phone": "303-270-9189",
+              "storeType": "Mobile SAS"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - BELMAR",
+              "distance": 5.31,
+              "phone": "303-742-8039",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY - COLORADO BLVD",
+              "distance": 5.59,
+              "phone": "303-758-5805",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - DENVER WEST",
+              "distance": 8.39,
+              "phone": "303-273-5617",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "WESTMINSTER",
+              "longName": "BEST BUY - WESTMINSTER",
+              "distance": 8.52,
+              "phone": "303-426-4434",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "DENVER",
+              "longName": "BEST BUY - NORTHGLENN",
+              "distance": 9.14,
+              "phone": "303-252-8677",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "AURORA",
+              "longName": "BEST BUY MOBILE - TOWN CENTER AT AURORA",
+              "distance": 9.73,
+              "phone": "303-326-0848",
+              "storeType": "Mobile SAS"
+            },
+            {
+              "city": "AURORA",
+              "longName": "BEST BUY - AURORA",
+              "distance": 9.79,
+              "phone": "303-338-5797",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "LAKEWOOD",
+              "longName": "BEST BUY - LITTLETON",
+              "distance": 10.44,
+              "phone": "303-932-7830",
+              "storeType": "Big Box"
+            },
+            {
+              "city": "CENTENNIAL",
+              "longName": "BEST BUY - SOUTHGLENN",
+              "distance": 11.02,
+              "phone": "303-797-3246",
+              "storeType": "Big Box"
+            }
+          ],
+          "warnings": "Distances are in terms of miles (default)"
+        }
+    http_version: 
+  recorded_at: Thu, 23 Feb 2017 17:46:41 GMT
+recorded_with: VCR 3.0.3

@@ -5,7 +5,8 @@ class SearchController < ApplicationController
 end
 
 class SearchPresenter
-  attr_reader :zipcode
+  attr_reader :zipcode,
+              :stores
 
   def initialize(zipcode)
     @zipcode = zipcode
@@ -22,6 +23,12 @@ class SearchPresenter
 end
 
 class Store
+  attr_reader :name,
+              :city,
+              :phone,
+              :distance,
+              :type
+
   def initialize(store_attrs)
     @name     = store_attrs[:longName]
     @type     = store_attrs[:storeType]
@@ -31,14 +38,37 @@ class Store
   end
 
   def self.near(zipcode)
-    BestBuyStoreService.near(zipcode).each do |store|
-      new(store)
+    BestBuyStoreService.near(zipcode).map do |store_attrs|
+      new(store_attrs)
     end
   end
 end
 
 class BestBuyStoreService
-  def self.near(zipcode)
-
+  def get_stores(zipcode)
+    @zipcode = zipcode
+    get_json[:stores]
   end
+
+  def self.near(zipcode)
+    new.get_stores(zipcode)
+  end
+
+  private
+
+    def conn
+      @conn ||= Faraday.new("https://api.bestbuy.com/v1/")
+    end
+
+    def default_search
+      "stores(area(#{@zipcode},25))?format=json&show=city,longName,distance,phone,storeType&pageSize=10&apiKey=#{ENV["best_buy_key"]}"
+    end
+
+    def response
+      conn.get(default_search)
+    end
+
+    def get_json
+      JSON.parse(response.body, symbolize_names: true)
+    end
 end
